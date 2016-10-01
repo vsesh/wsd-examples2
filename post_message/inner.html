@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script>
+        window.onload = function () {
+            window.addEventListener("message", function (event) {
+                console.log(
+                    'iframe: ' + event.data
+                );
+                event.source.postMessage('pong!', event.origin);
+            });
+
+        };
+    </script>
+</head>
+<body>
+</body>
+</html>

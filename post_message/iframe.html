@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script>
+            window.onload = function () {
+
+                var iframeWin = document.getElementById('frame').contentWindow;
+
+                // Посылаем сообщение.
+                setInterval(function () {
+                    iframeWin.postMessage('ping', '*');
+                }, 1000);
+
+                // Получаем ответ
+                window.addEventListener("message", function (event) {
+                    console.log(
+                        'window: ' + event.data
+                    );   
+                });
+            };
+        </script>
+</head>
+<body>
+    <iframe src=inner.html id=frame width=100 height=100></iframe>
+</body>
+</html>
